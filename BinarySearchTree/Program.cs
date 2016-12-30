@@ -11,7 +11,6 @@ namespace BinarySearchTree
         static void Main(string[] args)
         {
             Binary binary = new Binary();
-
             binary.AddNumber(10);
             binary.AddNumber(7);
             binary.AddNumber(4);
@@ -22,8 +21,9 @@ namespace BinarySearchTree
             binary.AddNumber(28);
             binary.AddNumber(5);
             binary.AddNumber(21);
+            binary.Display();
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }                                    
 }

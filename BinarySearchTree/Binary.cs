@@ -31,7 +31,7 @@ namespace BinarySearchTree
             }
             else
             {
-                root.InsertNumber(root, number);
+                root.InsertNumber(ref root, number);
             }
             count++;
         }
@@ -39,5 +39,16 @@ namespace BinarySearchTree
         //{
         //    return false;
         //}
+        public bool Search(int numberSearched)
+        {
+            return root.Search(root, numberSearched);
+        }
+        public void Display()
+        {
+            if (root != null)
+            {
+                root.Display(root);
+            }
+        }
     }
 }

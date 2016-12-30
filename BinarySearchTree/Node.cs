@@ -48,7 +48,7 @@ namespace BinarySearchTree
                 rightChild = value;
             }
         }
-        public Node InsertNumber(Node node, int number)
+        public void InsertNumber(ref Node node, int number)
         {
             if (node == null)
             {
@@ -56,13 +56,40 @@ namespace BinarySearchTree
             }
             else if (node.number < number)
             {
-                InsertNumber(node.leftChild, number);
+                InsertNumber(ref node.leftChild, number);
             }
             else if (node.number > number)
             {
-                InsertNumber(node.rightChild, number);
+                InsertNumber(ref node.rightChild, number);
             }
-            return node;
+        }
+        public bool Search(Node node, int numberSearched)
+        {
+            if (node == null)
+            {
+                return false;
+            }
+            else if (node.number < numberSearched)
+            {
+                return Search(node.leftChild, numberSearched);
+            }
+            else if (node.number > numberSearched)
+            {
+                return Search(node.rightChild, numberSearched);
+            }
+            if (node.number == numberSearched)
+            {
+                return true;
+            }
+            return false;
+        }
+        public void Display(Node node)
+        {
+            if (node == null)
+                return;
+            Display(node.RightChild);
+            Console.WriteLine("{0}", node.Number);
+            Display(node.LeftChild);
         }
     }
 }
