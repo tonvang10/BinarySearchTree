@@ -23,6 +23,7 @@ namespace BinarySearchTree
             binary.AddNumber(21);
             binary.Display();
 
+
             Console.ReadKey();
         }
     }                                    

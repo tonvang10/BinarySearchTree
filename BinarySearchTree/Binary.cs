@@ -35,10 +35,10 @@ namespace BinarySearchTree
             }
             count++;
         }
-        //public bool RemoveNode()
-        //{
-        //    return false;
-        //}
+        public bool RemoveNode()
+        {
+            return false;
+        }
         public bool Search(int numberSearched)
         {
             return root.Search(root, numberSearched);
