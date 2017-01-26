@@ -6,49 +6,78 @@ using System.Threading.Tasks;
 
 namespace BinarySearchTree
 {
-    class Binary
+    class Binary <T> where T : IComparable
     {
-        Node root;
-        int count;
+        Node<T> node;
+        int result;    
 
-        public Binary()
+        public Binary(T value)
         {
-            root = null;
-            count = 0;
+            node = new Node<T>(value);
         }
-        public int Count
+        public int Count { get; set; }
+        public void Add(T value)
         {
-            get
+            int number;
+            Node<T> newNode = new Node<T>(value);
+            Node<T> root = node, parent = null;
+            while (root != null)
             {
-                return count;
+                number = root.Value.CompareTo(newNode.Value);
+                if (number == 0)
+                    return;
+                else if (number > 0)
+                {
+                    parent = root;
+                    root = root.LeftChild;
+                }
+                else if (number < 0)
+                {
+                    parent = root;
+                    root = root.RightChild;
+                }
             }
-        }
-        public void AddNumber(int number)
-        {
-            if (root == null)
+            if (parent == null)
             {
-                root = new Node(number);
+                root = newNode;
             }
             else
             {
-                root.InsertNumber(ref root, number);
+                number = parent.Value.CompareTo(newNode.Value);
+                if (number > 0)
+                {
+                    parent.
+                        LeftChild = newNode;
+                }
+                else
+                {
+                    parent.RightChild = newNode;
+                }
             }
-            count++;
         }
         public bool RemoveNode()
         {
             return false;
         }
-        public bool Search(int numberSearched)
+        public bool SearchTree(T value)
         {
-            return root.Search(root, numberSearched);
-        }
-        public void Display()
-        {
-            if (root != null)
+            Node<T> origin = node;
+            Node<T> newNode = new Node<T>(value);
+            while (origin != null)
             {
-                root.Display(root);
-            }
+                result = origin.Value.CompareTo(newNode.Value);
+                if (result == 0)
+                    return true;
+                else if (result > 0)
+                {
+                    origin = origin.LeftChild;
+                }
+                else if (result < 0)
+                {
+                    origin = origin.RightChild;
+                }
+            }            
+            return false;
         }
     }
 }

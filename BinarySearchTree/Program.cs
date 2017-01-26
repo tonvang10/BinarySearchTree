@@ -10,21 +10,14 @@ namespace BinarySearchTree
     {
         static void Main(string[] args)
         {
-            Binary binary = new Binary();
-            binary.AddNumber(10);
-            binary.AddNumber(7);
-            binary.AddNumber(4);
-            binary.AddNumber(17);
-            binary.AddNumber(16);
-            binary.AddNumber(14);
-            binary.AddNumber(2);
-            binary.AddNumber(28);
-            binary.AddNumber(5);
-            binary.AddNumber(21);
-            binary.Display();
-
-
-            Console.ReadKey();
+            Binary<int> binary = new Binary<int>(9);
+            binary.Add(10);
+            binary.Add(7);
+            binary.Add(4);
+            binary.Add(17);
+            binary.Add(16);
+            binary.Add(2);
+            binary.Add(21);
         }
     }                                    
 }
